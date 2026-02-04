@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from app.core.config import settings
-from app.api.routes import auth
+from app.api.routes import auth,admin
 
 app = FastAPI(
     title = settings.APP_NAME,
@@ -13,3 +13,4 @@ def health_check():
             "Enviornment": settings.ENV}
 
 app.include_router(auth.router)
+app.include_router(admin.router)
