@@ -1,7 +1,7 @@
 from passlib.context import CryptContext
 
 pwd_context = CryptContext(
-    schemes= ["bcrypt"],
+    schemes= ["argon2"],
     deprecated = "auto"
 )
 
@@ -9,5 +9,7 @@ pwd_context = CryptContext(
 def hash_password(password :str) -> str:
     return pwd_context.hash(password)
 
-def verify_password(plain :str, hashed :str) -> str:
+def verify_password(plain :str, hashed :str) -> bool:
     return pwd_context.verify(plain, hashed)
+
+

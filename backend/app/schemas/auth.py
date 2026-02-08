@@ -7,3 +7,18 @@ class LoginRequest(BaseModel):
 class TokenResponse(BaseModel):
     access_token :str
     token_type :str = "bearer"
+
+
+class RegisterRequest(BaseModel):
+    email: EmailStr
+    password: str
+    role: str = ""
+
+
+class UserResponse(BaseModel):
+    id: int
+    email: EmailStr
+    role: str
+
+    class Config:
+        from_attributes = True   
