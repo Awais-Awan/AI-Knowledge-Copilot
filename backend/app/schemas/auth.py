@@ -12,7 +12,7 @@ class TokenResponse(BaseModel):
 class RegisterRequest(BaseModel):
     email: EmailStr
     password: str
-    role: str = ""
+    role: str = "admin"
 
 
 class UserResponse(BaseModel):

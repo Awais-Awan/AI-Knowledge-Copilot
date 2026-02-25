@@ -8,6 +8,6 @@ class Document(Base):
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, nullable=False)
     content = Column(Text, nullable= False)
-    embedding = Column(Vector(768))
+    embedding = Column(Vector(384))
     owner_id = Column(Integer, ForeignKey("users.id"))
     owner = relationship("User", back_populates="documents")

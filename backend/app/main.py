@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from app.core.config import settings
-from app.api.routes import auth,admin
+from app.api.routes import auth,admin,documents
 
 app = FastAPI(
     title = settings.APP_NAME,
@@ -14,3 +14,4 @@ def health_check():
 
 app.include_router(auth.router)
 app.include_router(admin.router)
+app.include_router(documents.router)
