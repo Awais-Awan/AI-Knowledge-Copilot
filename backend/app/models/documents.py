@@ -1,6 +1,5 @@
 from sqlalchemy import Column,Integer,String,Text,ForeignKey
 from sqlalchemy.orm import relationship
-from pgvector.sqlalchemy import Vector
 from app.core.database import Base
 
 class Document(Base):
