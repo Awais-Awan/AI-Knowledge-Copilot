@@ -7,10 +7,15 @@ app = FastAPI(
     version = "0.1.0"
 )
 
+@app.get("/")
+def home():
+    return "Please go to the docs"
+
 @app.get("/health")
 def health_check():
     return {"status":"OK",
             "Enviornment": settings.ENV}
+
 
 app.include_router(auth.router)
 app.include_router(admin.router)
