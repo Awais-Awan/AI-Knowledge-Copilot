@@ -1,11 +1,15 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
+from sqlalchemy import text
+
 from app.core.database import get_db
 from app.core.dependencies import get_current_user
 from app.schemas.document import DocumentCreate, DocumentSearch
 from app.services.document_service import create_document_with_chunks
-from sqlalchemy import text
 from app.services.embedding_service import generate_embedding
+
+
+
 
 router = APIRouter(prefix="/documents", tags=["Documents"])
 
@@ -27,7 +31,6 @@ def upload_document(
         "message": "Document stored with chunks",
         "document_id": document.id
     }
-
 
 
 
